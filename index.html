@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업무용 To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/todo_icon_16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/todo_icon_32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="icons/todo_icon_48x48.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="icons/todo_icon_128x128.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="icons/todo_icon_256x256.png">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>📋 업무용 To-Do List</h1>
+                <p>오늘 할 일을 정리하고, 내일을 계획하세요</p>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-row">
+                <div class="edit-controls">
+                    <div class="edit-controls-left">
+                        <div class="edit-field">
+                            <span class="edit-label">중요도</span>
+                            <select id="prioritySelect" class="edit-select">
+                                <option value="1">🔵 매우 낮음</option>
+                                <option value="2">🟢 낮음</option>
+                                <option value="3" selected>🟡 보통</option>
+                                <option value="4">🟠 높음</option>
+                                <option value="5">🔴 매우 높음</option>
+                            </select>
+                        </div>
+                        <div class="edit-field">
+                            <span class="edit-label">시급도</span>
+                            <select id="urgencySelect" class="edit-select">
+                                <option value="1">🔵 매우 낮음</option>
+                                <option value="2">🟢 낮음</option>
+                                <option value="3" selected>🟡 보통</option>
+                                <option value="4">🟠 높음</option>
+                                <option value="5">🔴 매우 높음</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="input-with-button">
+                    <input type="text" id="taskInput" placeholder="할 일을 입력하세요..." maxlength="100" class="edit-input">
+                    <button class="add-btn" id="addBtn">➕ 추가</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="current" id="currentTab">
+                        <div class="tab-number" id="totalTasks">0</div>
+                        <div class="tab-label">현재 할 일</div>
+                    </button>
+                    <button class="tab-button" data-tab="completed" id="completedTab">
+                        <div class="tab-number" id="completedTasks">0</div>
+                        <div class="tab-label">완료된 일</div>
+                    </button>
+                    <button class="tab-button" data-tab="all" id="allTab">
+                        <div class="tab-number" id="pendingTasks">0</div>
+                        <div class="tab-label">총 할 일</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tasks-grid">
+                <div class="section" data-tab-group="current all">
+                    <h2 class="section-title collapsible" id="doNowToggle">🔥 Do now</h2>
+                    <div class="collapsible-content" id="doNowSection">
+                        <ul class="task-list" id="doNowTasks">
+                            <li class="empty-state">긴급하고 중요한 일이 없습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section" data-tab-group="current all">
+                    <h2 class="section-title collapsible" id="doLaterToggle">📅 Do later</h2>
+                    <div class="collapsible-content" id="doLaterSection">
+                        <ul class="task-list" id="doLaterTasks">
+                            <li class="empty-state">중요하지만 급하지 않은 일이 없습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section" data-tab-group="current all">
+                    <h2 class="section-title collapsible" id="delegateToggle">⚡ Delegate</h2>
+                    <div class="collapsible-content" id="delegateSection">
+                        <ul class="task-list" id="delegateTasks">
+                            <li class="empty-state">급하지만 덜 중요한 일이 없습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section" data-tab-group="current all">
+                    <h2 class="section-title collapsible" id="postponeToggle">🗑️ Postpone</h2>
+                    <div class="collapsible-content" id="postponeSection">
+                        <ul class="task-list" id="postponeTasks">
+                            <li class="empty-state">덜 중요하고 급하지 않은 일이 없습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section" data-tab-group="completed all">
+                    <h2 class="section-title collapsible" id="completedToggle">✅ Complete</h2>
+                    <div class="collapsible-content" id="completedSection">
+                        <ul class="task-list" id="completedTasksList">
+                            <li class="empty-state">완료된 일이 없습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
