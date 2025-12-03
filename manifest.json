@@ -13,7 +13,5 @@
     "default_popup": "index.html",
     "default_title": "To-Do List"
   },
-  "permissions": [
-    "storage"
-  ]
+  "permissions": []
 } 
